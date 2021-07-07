@@ -15,13 +15,13 @@ document.onclick = async function (event){
     b = {x: 50, y: 430};
     bdir =dir;
     b.x = b.x + Math.sin(bdir) * 150;
-    b.y = b.y +Math.cos(bdir) * 200;
+    b.y = b.y +Math.cos(bdir) * 150;
     let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
     for (var i = 0; i <= 150; i++) {
         b.x -= prgs.x;
         b.y -= prgs.y;
         prgs.y -= 1;
-        await new Promise(resolve => setTimeout(resolve, 15))
+        await new Promise(resolve => setTimeout(resolve, 10))
     }
 }
 
