@@ -16,7 +16,7 @@ function drawImageLookat(img, x, y, lookx, looky){
 
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
-    drawImageLookat(cannon, 0, 470, mouse.x, mouse.y);
+    drawImageLookat(cannon, 0, 430, mouse.x, mouse.y);
 }
 function main() {
     render();
