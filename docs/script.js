@@ -18,7 +18,7 @@ function render() {
     ctx.clearRect(0, 0, 1500, 1500)
     drawImageLookat(cannon, 0, 500, mouse.x, mouse.y);
 }
-
+console.log('ThiS IS UPDATING! ')
 function main() {
     render();
     requestAnimationFrame(main);
