@@ -13,8 +13,8 @@ document.onmousemove = function (event) { mouse.x = event.clientX; mouse.y = eve
 document.onclick = async function (event){
     b = {x: 50, y: 430};
     bdir = dir;
-    b.x += Math.sin(bdir) * 150;
-    b.y += Math.cos(bdir) * 150;
+    b.x += Math.sin(bdir) * 200;
+    b.y += Math.cos(bdir) * 200;
     let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
     for (var i = 0; i <= 30; i++) {
         b.x -= prgs.x;
