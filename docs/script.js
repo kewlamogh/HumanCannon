@@ -11,21 +11,19 @@ cannon.src = 'cannon.jpg';
 
 document.onmousemove = function (event) { mouse.x = event.clientX; mouse.y = event.clientY;};
 document.onclick = async function (event){
-    if (!isFiring) {
-        isFiring = true;
-        b = {x: 50, y: 430};
-        bdir = dir;
-        b.x += Math.sin(bdir) * 50;
-        b.y -= Math.cos(bdir) * 50;
-        let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
-        for (var i = 0; i <= 150; i++) {
-            b.x -= prgs.x;
-            b.y -= prgs.y;
-            prgs.y -= 1;
-            await new Promise(resolve => setTimeout(resolve, 10))
-        }
-        isFiring = false;
+    isFiring = true;
+    b = {x: 50, y: 430};
+    bdir = dir;
+    b.x += Math.sin(bdir) * 50;
+    b.y -= Math.cos(bdir) * 50;
+    let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
+    for (var i = 0; i <= 150; i++) {
+        b.x -= prgs.x;
+        b.y -= prgs.y;
+        prgs.y -= 1;
+        await new Promise(resolve => setTimeout(resolve, 10))
     }
+    isFiring = false;
 }
 
 function drawImageLookat(img, x, y, lookx, looky){
