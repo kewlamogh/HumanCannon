@@ -24,7 +24,6 @@ document.onclick = async function (event){
         await new Promise(resolve => setTimeout(resolve, 10))
     }
     isFiring = false;
-    window.open('file:///C:/Users/amogh/OneDrive/Documents/GitHub/HumanCannon/docs/index.html')
 }
 
 function drawImageLookat(img, x, y, lookx, looky){
