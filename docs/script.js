@@ -14,14 +14,14 @@ document.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = even
 document.onclick = async function (event){
     b = {x: 50, y: 430};
     bdir =dir;
-    b.x = b.x + Math.sin(bdir) * 100;
-    b.y = b.y +Math.cos(bdir) * 100;
+    b.x = b.x + Math.sin(bdir) * 150;
+    b.y = b.y +Math.cos(bdir) * 150;
     let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
-    for (var i = 0; i <= 60; i++) {
+    for (var i = 0; prgs.y >= 0; i++) {
         b.x -= prgs.x;
         b.y -= prgs.y;
         prgs.y -= 1;
-        await new Promise(resolve => setTimeout(resolve, 60))
+        await new Promise(resolve => setTimeout(resolve, 15))
     }
 }
 
