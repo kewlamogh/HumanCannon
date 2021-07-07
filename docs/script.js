@@ -16,7 +16,7 @@ document.onclick = async function (event){
     b.x += Math.sin(bdir) * 150;
     b.y += Math.cos(bdir) * 150;
     let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
-    for (var i = 0; i <= 150; i++) {
+    for (var i = 0; i <= 30; i++) {
         b.x -= prgs.x;
         b.y -= prgs.y;
         prgs.y -= 1;
