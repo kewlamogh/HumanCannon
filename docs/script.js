@@ -12,7 +12,7 @@ cannon.src = 'cannon.jpg';
 document.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
 
 document.onclick = async function (event){
-    b = {x: dir * 0.03182072954873374, y: dir * 0.03182072954873374};
+    b = {x: 50, y: 50};
     bdir = dir;
     let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
     for (var i = 0; i <= 60; i++) {
