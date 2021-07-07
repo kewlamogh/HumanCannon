@@ -21,7 +21,7 @@ document.onclick = async function (event){
         b.x -= prgs.x;
         b.y -= prgs.y;
         prgs.y -= 1;
-        await new Promise(resolve => setTimeout(resolve, 10))
+        await new Promise(resolve => setTimeout(resolve, 60))
     }
 }
 
