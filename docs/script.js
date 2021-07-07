@@ -2,6 +2,8 @@
 
 let isFiring = false;
 let b = {x: 0, y:0};
+let bdir = 0;
+let dir = 0;
 let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined}
 let ctx = document.getElementById('canv').getContext('2d');
@@ -10,16 +12,21 @@ cannon.src = 'cannon.jpg';
 document.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
 
 document.onclick = async function (event){
-    b = {x: 50, y: 125};
+    b = {x: dir * 0.03182072954873374, y: dir * 0.03182072954873374};
+    bdir = dir;
+    let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
     for (var i = 0; i <= 60; i++) {
-        b.y -= 5;
-        await new Promise(resolve => setTimeout(resolve, 1))
+        b.x -= prgs.x;
+        b.y -= prgs.y;
+        prgs.y -= 1;
+        await new Promise(resolve => setTimeout(resolve, 10))
     }
 }
 
 function drawImageLookat(img, x, y, lookx, looky){
     ctx.setTransform(1, 0, 0, 1, x, y);  // set scale and origin
-    ctx.rotate(Math.atan2(looky - y, lookx - x)); // set angle
+    dir = Math.atan2(looky - y, lookx - x);
+    ctx.rotate(dir); // set angle
     ctx.drawImage(img,-img.width / 2, -img.height / 2); // draw image
     ctx.setTransform(1, 0, 0, 1, 0, 0); // restore default not needed if you use setTransform for other rendering operations 
     let my=document.createElement('img');
