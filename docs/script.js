@@ -1,9 +1,9 @@
-// ok thx to @Blindman on stackoverflow for dis
+// ok thx to @Blindman on stackoverflow for the drawimagelookat func
 
 let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined}
 let ctx = document.getElementById('canv').getContext('2d');
-cannon.src = 'imgs/cannon.jpg';
+cannon.src = 'cannon.jpg';
 
 document.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
 
