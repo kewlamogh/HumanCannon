@@ -7,12 +7,13 @@ let bigSpashX = 0;
 let dir = 0;
 let bigSplashing = false;
 let cannon = document.createElement('img');
-let mouse = {x: undefined, y: undefined}
+let mouse = {x: undefined, y: undefined};
+let canvas = document.getElementsByClassName('canv');
 let ctx = document.getElementById('canv').getContext('2d');
 cannon.src = 'cannon.jpg';
 
-document.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
-document.onclick = async function (event){
+canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
+canvas.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
