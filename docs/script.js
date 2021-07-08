@@ -43,7 +43,6 @@ canvas.onclick = async function (event){
                 bigSplashing = false;
                 isFiring = false;
                 return;
-                break;
             }
         }
         isFiring = false;
