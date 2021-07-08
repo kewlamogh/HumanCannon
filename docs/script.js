@@ -29,9 +29,7 @@ canvas.onclick = async function (event){
             b.x -= prgs.x; 
             if (b.x < orig) {
                 console.log('hmm');
-                bigSplashing = false;
-                isFiring = false;
-                return;
+                b.x = orig + 5;
             }
             b.y -= prgs.y;
             prgs.y -= 1;
