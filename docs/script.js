@@ -24,7 +24,7 @@ canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.
  * i set the var mouse's x to event.clientX and y to event.clientY, so it's as good as being able to access clientX and clientY in top-level and/or plain old not-evt funcs
  */
 canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
-    if (!isFiring) {
+    if (!isFiring && event.clientY > 463) {
         humanToDraw = humans[Math.floor(Math.random()*humans.length)]; //shuffling humans
         isFiring = true; 
         b = {x: 50, y: 430, dir: undefined}; 
