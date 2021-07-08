@@ -9,8 +9,11 @@ let mouse = {x: undefined, y: undefined}
 let ctx = document.getElementById('canv').getContext('2d');
 cannon.src = 'cannon.jpg';
 
-document.onmousemove = function (event) { mouse.x = event.clientX; mouse.y = event.clientY;};
+document.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
 document.onclick = async function (event){
+    //b is actual pos
+    //prgs is x & y vars
+    //k
     if (!isFiring) {
         isFiring = true;
         b = {x: 50, y: 430};
@@ -30,7 +33,15 @@ document.onclick = async function (event){
 
 function drawImageLookat(img, x, y, lookx, looky){
     ctx.setTransform(1, 0, 0, 1, x, y);  // set scale and origin
+    
     dir = Math.atan2(looky - y, lookx - x);
+    
+    if (10 > dir) {
+        dir = 10;
+    } else if (80 < dir) {
+        dir = 80;
+    }
+
     ctx.rotate(dir); // set angle
     ctx.drawImage(img,-img.width / 2, -img.height / 2); // draw image
     ctx.setTransform(1, 0, 0, 1, 0, 0); // restore default not needed if you use setTransform for other rendering operations 
