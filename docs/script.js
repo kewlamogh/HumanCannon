@@ -8,7 +8,7 @@ let dir = 0;
 let bigSplashing = false;
 let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined};
-let canvas = document.getElementsByClassName('canv');
+let canvas = document.getElementById('canv');
 let ctx = document.getElementById('canv').getContext('2d');
 cannon.src = 'cannon.jpg';
 
@@ -17,7 +17,7 @@ canvas.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
-    if (!isFiring && Math.round(dir) == 0) {
+    if (!isFiring && Math.round(dir) == 0 && dir > 0.046478131351002934) {
         isFiring = true;
         b = {x: 50, y: 430};
         bdir = dir;
@@ -25,7 +25,7 @@ canvas.onclick = async function (event){
         b.y = b.y - Math.cos(bdir) * 50; 
         let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
         for (var i = 0; i <= 150; i++) {
-            b.x -= prgs.x;
+            b.x -= prgs.x; 
             b.y -= prgs.y;
             prgs.y -= 1;
             await new Promise(resolve => setTimeout(resolve, 10))
