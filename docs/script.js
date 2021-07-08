@@ -25,7 +25,7 @@ canvas.onclick = async function (event){
         isFiring = true;
         b = {x: 50, y: 430};
         bdir = dir;
-        b.x = b.x + Math.sin(bdir) * 50;
+        b.x = (b.x + Math.sin(bdir) * 50) + 30;
         b.y = b.y - Math.cos(bdir) * 50; 
         let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
         for (var i = 0; i <= 150; i++) {
