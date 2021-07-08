@@ -16,7 +16,7 @@ let cannon = genImg('cannon.jpg'); //the cannon's HTMLImgElement
 let mouse = {x: undefined, y: undefined}; //mouse pos
 let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
-let humans = ['human2.jpg', 'human.jpg', 'human3.jpg']//humans
+let humans = ['imgs/human2.jpg', 'imgs/human.jpg', 'imgs/human3.jpg']//humans
 
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; /**
