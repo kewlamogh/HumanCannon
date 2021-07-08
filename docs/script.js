@@ -1,41 +1,40 @@
-// ok thx to @Blindman on stackoverflow for the drawimagelookat func
-
 let isFiring = false;
-let b = {x: 0, y:0};
-let bdir = 0;
-let bigSpashX = 0;
-let dir = 0;
-let humanToDraw = 'human.jpg';
-let bigSplashing = false;
-let cannon = document.createElement('img');
-let mouse = {x: undefined, y: undefined};
-let canvas = document.getElementById('canv');
-let ctx = document.getElementById('canv').getContext('2d');
-let humans = ['human (2).jpg', 'human.jpg', 'human3.jpg']
-cannon.src = 'cannon.jpg';
+let b = {x: 0, y:0, dir:0}; //bullet - dir attr has nothing to do with graphics just essential to the physics engine
+let bigSplashX = 0; //x to show splash of water - displays in render func if bigSplashing
+let dir = 0; //direction canon has point toward to point to mouse
+let humanToDraw = 'human.jpg'; //human to draw - gets randomly shuffled from humans
+let bigSplashing = false; //has human landed and is it splashing?
+let cannon = genImg('cannon.jpg'); //the cannon's HTMLImgElement
+let mouse = {x: undefined, y: undefined}; //mouse pos
+let canvas = document.getElementById('canv'); //canvas
+let ctx = canvas.getContext('2d'); //context
+let humans = ['human (2).jpg', 'human.jpg', 'human3.jpg']//humans
 
-canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
-canvas.onclick = async function (event){
-    //b is actual pos
-    //prgs is x & y vars
-    //k
-    let orig = b.x;
+
+canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; /**
+ * Since event.clientX cannot be accessed out of events (because like obviously its the mouse position _at_ an event), so onmousemove
+ * i set the var mouse's x to event.clientX and y to event.clientY, so it's as good as being able to access clientX and clientY in top-level and/or plain old not-evt funcs
+ */
+canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
     if (!isFiring) {
-        humanToDraw = humans[Math.floor(Math.random()*humans.length)];
-        isFiring = true;
-        b = {x: 50, y: 430};
-        bdir = dir;
-        b.x = (b.x + Math.sin(bdir) * 50) + 30;
-        b.y = b.y - Math.cos(bdir) * 50; 
-        let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
-        for (var i = 0; i <= 150; i++) {
-            b.x -= prgs.x; 
-            b.y -= prgs.y;
-            prgs.y -= 1;
-            await new Promise(resolve => setTimeout(resolve, 10))
+        humanToDraw = humans[Math.floor(Math.random()*humans.length)]; //shuffling humans
+        isFiring = true; 
+        b = {x: 50, y: 430, dir: undefined}; 
+        b.dir = dir;
+    
+        b.x = (b.x + Math.sin(b.dir) * 50) + 30; //thx to scratch dictionary for providing an alternative to "Move () steps" in Scratch (which I translated to JS)
+        b.y = b.y - Math.cos(b.dir) * 50; //same as prev comment
+
+
+        let vel = {x: Math.sin(b.dir) * 22, y:Math.cos(b.dir) * 22} //progress/translation/velocity I'm calling it vel 
+        for (var i = 0; i <= 150; i++) { //loop
+            b.x += vel.x; 
+            b.y -= vel.y;
+            vel.y -= 1;
+            await new Promise(resolve => setTimeout(resolve, 10)) //slowing down the loop to scratch-like speed - this script was originally in scratchlang
             if (b.y > 500) { //too low
                 bigSplashing = true;
-                bigSpashX = b.x;
+                bigSplashX = b.x;
                 await new Promise(resolve => setTimeout(resolve, 300));
                 bigSplashing = false;
                 isFiring = false;
@@ -46,8 +45,8 @@ canvas.onclick = async function (event){
         
     }
 }
-
-function drawImageLookat(img, x, y, lookx, looky){
+ 
+function drawImageLookat(img, x, y, lookx, looky){ //thanks to someone on StackOverflow for this script
     ctx.setTransform(1, 0, 0, 1, x, y);  // set scale and origin
     
     if (!isFiring) {
@@ -59,20 +58,24 @@ function drawImageLookat(img, x, y, lookx, looky){
     ctx.setTransform(1, 0, 0, 1, 0, 0); // restore default not needed if you use setTransform for other rendering operations 
 }
 
+function genImg(src) { //generates an image without generating unnecessary vars for ever HTMLImgElement
+    let myImg = document.createElement('img');
+    myImg.src = src;
+    return myImg;
+}
+
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
     drawImageLookat(cannon, 50, 430, mouse.x, mouse.y);
     
     if (isFiring) {
-        let my=document.createElement('img');
-        my.src = humanToDraw;
+        let my= genImg(humanToDraw);
         ctx.drawImage(my, b.x, b.y);
     }
     
     if (bigSplashing) {
-        let spatch = document.createElement('img');
-        spatch.src = 'spatch.jpg';
-        ctx.drawImage(spatch, bigSpashX, 370);
+        let spatch = genImg('splash-from-water.jpg');
+        ctx.drawImage(spatch, bigSplashX, 370);
     }
 }
 async function main() {
@@ -80,5 +83,5 @@ async function main() {
     requestAnimationFrame(main);
 }
 main();
-// lol these 84 lns of code must be the most annoying codes I've had to make >:(
+// lol these 87 lns of code must be the most annoying codes I've had to make >:(
     // but im ok
