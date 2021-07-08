@@ -61,7 +61,7 @@ function render() {
     if (bigSplashing) {
         let spatch = document.createElement('img');
         spatch.src = 'spatch.jpg';
-        ctx.drawImage(spatch, bigSpashX, 490);
+        ctx.drawImage(spatch, bigSpashX, 300);
     }
 }
 async function main() {
