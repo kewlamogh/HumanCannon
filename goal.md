@@ -1,5 +1,6 @@
 # goals
-- a nice lookin' cannon
-- human projectiles
-- a pool for them to land into
-- [optional] a splash :)
+- a nice lookin' cannon _/
+- human projectiles _/
+- a pool for them to land into _/
+- [optional] a splash :) _/
+- good physics :|
