@@ -50,7 +50,9 @@ canvas.onclick = async function (event){
 function drawImageLookat(img, x, y, lookx, looky){
     ctx.setTransform(1, 0, 0, 1, x, y);  // set scale and origin
     
-    dir = Math.atan2(looky - y, lookx - x);
+    if (!isFiring) {
+        dir = Math.atan2(looky - y, lookx - x);
+    }
 
     ctx.rotate(dir); // set angle
     ctx.drawImage(img,-img.width / 2, -img.height / 2); // draw image
