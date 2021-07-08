@@ -11,7 +11,7 @@ let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined};
 let canvas = document.getElementById('canv');
 let ctx = document.getElementById('canv').getContext('2d');
-let humans = ['human (2).jpg', 'human.jpg', ]
+let humans = ['human (2).jpg', 'human.jpg', 'human3.jpg']
 cannon.src = 'cannon.jpg';
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
