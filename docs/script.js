@@ -4,14 +4,14 @@ let dir = 0; //direction canon has point toward to point to mouse
 let humanToDraw = 'human.jpg'; //human to draw - gets randomly shuffled from humans
 let bigSplash ={splashing: false, splashX: 0}
 let cannon = genImg('imgs/other','cannon.jpg'); //the cannon's HTMLImgElement
-let mouse; //mouse pos
+let mouse = {x: undefined, y: undefined}; //mouse pos
 let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
 let humansThrown = 0;
 let cannonPos = {x: 50, y: 430};
 let humans = ["human.jpg", "human2.jpg"]//humans
 
-document.onload = function (event) {
+document.onload = function (event) { //init mouse pos, prevent tricksters from crashing site when clicking before moving mouse
     mouse = {x: event.clientX, y: event.clientX};
 }
 
@@ -101,5 +101,3 @@ async function main() {
 }
 
 main();
-// lol these 103 lns of code must be the most annoying codes I've had to make >:(
-// but im ok :(

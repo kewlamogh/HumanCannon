@@ -8,9 +8,6 @@ In human cannon you are a very mean alien shooting other people through cannons 
 # Credits 
 Thanks to @Orange-Pear on Scratch for the basic Phsyics algorithm - ported from whatever-language-scratch-uses to JavaScript by me. Thanks to @Blindman on StackOverflow for the `drawImagelookat()` function. Rest of the code by me.
 
-# Fire humans with mouse-click 
-You can fire project-human-`jpg`s as long as there is not another one that is currently airborne
-
 # Instructions
 
 Aim with mouse - the cannon will point toward your mouse. Remember, the higher your mouse is during fire, the more the projectile-human-`jpg` will move forward along the x axis.
