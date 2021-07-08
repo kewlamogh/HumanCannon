@@ -27,6 +27,12 @@ canvas.onclick = async function (event){
         let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
         for (var i = 0; i <= 150; i++) {
             b.x -= prgs.x; 
+            if (b.x < orig) {
+                console.log('hmm');
+                bigSplashing = false;
+                isFiring = false;
+                return;
+            }
             b.y -= prgs.y;
             prgs.y -= 1;
             await new Promise(resolve => setTimeout(resolve, 10))
@@ -34,12 +40,6 @@ canvas.onclick = async function (event){
                 bigSplashing = true;
                 bigSpashX = b.x;
                 await new Promise(resolve => setTimeout(resolve, 300));
-                bigSplashing = false;
-                isFiring = false;
-                return;
-            }
-            if (b.x < orig) {
-                console.log('hmm');
                 bigSplashing = false;
                 isFiring = false;
                 return;
