@@ -84,8 +84,8 @@ function updateHTMLHumansThrownElem(nextValue) {
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
     if (isFiring) {
-        let my= genImg('imgs/humans', humanToDraw);
-        ctx.drawImage(my, b.x, b.y);
+        let projectile= genImg('imgs/humans', humanToDraw);
+        ctx.drawImage(projectile, b.x, b.y);
     }
     if (bigSplash.splashing) {
         let spatch = genImg('imgs/other', 'splash-from-water.jpg');
