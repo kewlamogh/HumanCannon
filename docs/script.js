@@ -16,7 +16,7 @@ let cannon = genImg('cannon.jpg'); //the cannon's HTMLImgElement
 let mouse = {x: undefined, y: undefined}; //mouse pos
 let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
-let humans = ['human (2).jpg', 'human.jpg', 'human3.jpg']//humans
+let humans = ['human2.jpg', 'human.jpg', 'human3.jpg']//humans
 
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; /**
@@ -24,7 +24,7 @@ canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.
  * i set the var mouse's x to event.clientX and y to event.clientY, so it's as good as being able to access clientX and clientY in top-level and/or plain old not-evt funcs
  */
 canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
-    if (!isFiring && event.clientY < 432) {
+    if (!isFiring && event.clientY < 400) {
         humanToDraw = humans[Math.floor(Math.random()*humans.length)]; //shuffling humans
         isFiring = true; 
         b = {x: 50, y: 430, dir: undefined}; 
@@ -91,5 +91,5 @@ async function main() {
     requestAnimationFrame(main);
 }
 main();
-// lol these 87 lns of code must be the most annoying codes I've had to make >:(
-    // but im ok
+// lol these 95 lns of code must be the most annoying codes I've had to make >:(
+// but im ok :(
