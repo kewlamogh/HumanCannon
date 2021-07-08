@@ -14,12 +14,12 @@ document.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
-    if (!isFiring) {
+    if (!isFiring && Math.round(dir) == 0) {
         isFiring = true;
         b = {x: 50, y: 430};
         bdir = dir;
         b.x += Math.sin(bdir) * 50;
-        b.y -= Math.cos(bdir) * 50;
+        b.y += Math.cos(bdir) * 60;
         let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
         for (var i = 0; i <= 150; i++) {
             b.x -= prgs.x;
@@ -35,12 +35,6 @@ function drawImageLookat(img, x, y, lookx, looky){
     ctx.setTransform(1, 0, 0, 1, x, y);  // set scale and origin
     
     dir = Math.atan2(looky - y, lookx - x);
-    
-    if (10 > dir) {
-        dir = 10;
-    } else if (80 < dir) {
-        dir = 80;
-    }
 
     ctx.rotate(dir); // set angle
     ctx.drawImage(img,-img.width / 2, -img.height / 2); // draw image
