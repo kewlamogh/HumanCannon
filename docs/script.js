@@ -32,6 +32,7 @@ canvas.onclick = async function (event){
             b.x -= prgs.x; 
             if (b.x < orig) {
                 isFiring = false; 
+                bigSplashing = false;
                 console.log('hmm');
                 return;
             }
