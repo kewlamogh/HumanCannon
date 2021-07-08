@@ -3,7 +3,9 @@
 let isFiring = false;
 let b = {x: 0, y:0};
 let bdir = 0;
+let bigSpashX = 0;
 let dir = 0;
+let bigSplashing = false;
 let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined}
 let ctx = document.getElementById('canv').getContext('2d');
@@ -28,6 +30,14 @@ document.onclick = async function (event){
             await new Promise(resolve => setTimeout(resolve, 10))
         }
         isFiring = false;
+        if (b.y > 500) { //too low
+            bigSplashing = true;
+            bigSpashX = b.x;
+            await new Promise(resolve => setTimeout(resolve, 300));
+            bigSplashing = false;
+            isFiring = false;
+            break;
+        }
     }
 }
 
@@ -39,14 +49,17 @@ function drawImageLookat(img, x, y, lookx, looky){
     ctx.rotate(dir); // set angle
     ctx.drawImage(img,-img.width / 2, -img.height / 2); // draw image
     ctx.setTransform(1, 0, 0, 1, 0, 0); // restore default not needed if you use setTransform for other rendering operations 
-    let my=document.createElement('img');
-    my.src = 'human (2).jpg';
-    ctx.drawImage(my, b.x, b.y)
 }
 
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
     drawImageLookat(cannon, 50, 430, mouse.x, mouse.y);
+    let my=document.createElement('img');
+    my.src = 'human (2).jpg';
+    ctx.drawImage(my, b.x, b.y)
+    if (bigSplashing) {
+        ctx.drawImage()
+    }
 }
 async function main() {
     render();
