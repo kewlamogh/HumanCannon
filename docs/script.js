@@ -57,8 +57,8 @@ try {
 }
 
 function moveProjectileSteps(steps, offsetX = 0, offsetY = 0) {
-    b.x = b.x + Math.sin(b.dir) * 50; //thx to scratch dictionary for providing an alternative to "Move () steps" in Scratch (which I translated to JS)
-    b.y = b.y - Math.cos(b.dir) * 50; //same as prev comment
+    b.x = b.x + Math.sin(dir) * 50; //thx to scratch dictionary for providing an alternative to "Move () steps" in Scratch (which I translated to JS)
+    b.y = b.y - Math.cos(dir) * 50; //same as prev comment
     b.y += offsetY;
     b.x += offsetX;
 }
