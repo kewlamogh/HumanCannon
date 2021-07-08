@@ -63,9 +63,13 @@ function drawImageLookat(img, x, y, lookx, looky){
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
     drawImageLookat(cannon, 50, 430, mouse.x, mouse.y);
-    let my=document.createElement('img');
-    my.src = 'human (2).jpg';
-    ctx.drawImage(my, b.x, b.y)
+    
+    if (isFiring) {
+        let my=document.createElement('img');
+        my.src = 'human (2).jpg';
+        ctx.drawImage(my, b.x, b.y);
+    }
+    
     if (bigSplashing) {
         let spatch = document.createElement('img');
         spatch.src = 'spatch.jpg';
