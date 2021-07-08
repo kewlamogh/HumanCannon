@@ -10,7 +10,7 @@ let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
 let humansThrown = 0;
 let cannonPos = {x: 50, y: 430};
-let humans = ["human.jpg", "human2.jpg", "human3.jpg"]//humans
+let humans = ["human.jpg", "human2.jpg", "human3.jpg", "human4.jpg"]//humans
 
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; /**
@@ -23,7 +23,7 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
  
         b = {x: 50, y: 430, dir: dir}; 
         isFiring = true;
-        moveProjectileSteps(50, -20, 60);
+        moveProjectileSteps(50, -20, 70);
 
 
         let vel = {x: Math.sin(b.dir) * 22, y:Math.cos(b.dir) * 22} //progress/translation/velocity I'm calling it vel 
