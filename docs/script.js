@@ -80,5 +80,5 @@ async function main() {
     requestAnimationFrame(main);
 }
 main();
-// lol these 87 lns of code must be the most annoying codes I've had to make >:(
+// lol these 84 lns of code must be the most annoying codes I've had to make >:(
     // but im ok
