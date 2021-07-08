@@ -28,8 +28,9 @@ canvas.onclick = async function (event){
         for (var i = 0; i <= 150; i++) {
             b.x -= prgs.x; 
             if (b.x < orig) {
+                isFiring = false; 
                 console.log('hmm');
-                b.x = orig + 5;
+                return;
             }
             b.y -= prgs.y;
             prgs.y -= 1;
