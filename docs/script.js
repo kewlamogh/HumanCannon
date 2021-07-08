@@ -20,7 +20,7 @@ canvas.onclick = async function (event){
     //prgs is x & y vars
     //k
     let orig = b.x;
-    if (!isFiring && Math.round(dir) == 0 && dir) {
+    if (!isFiring) {
         humanToDraw = humans[Math.floor(Math.random()*humans.length)];
         isFiring = true;
         b = {x: 50, y: 430};
