@@ -48,6 +48,13 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
     }
 }
  
+try {
+    for (var i in ['0', '1', '2']) {
+        console.log(i);
+    }
+} catch {
+    console.log("Nope list iterating simply doesn't work in JS *tear tear*")
+}
 
 function moveProjectileSteps(steps, offsetX = 0, offsetY = 0) {
     b.x = b.x + Math.sin(b.dir) * 50; //thx to scratch dictionary for providing an alternative to "Move () steps" in Scratch (which I translated to JS)
@@ -99,5 +106,5 @@ async function main() {
     requestAnimationFrame(main);
 }
 main();
-// lol these 96 lns of code must be the most annoying codes I've had to make >:(
+// lol these 102 lns of code must be the most annoying codes I've had to make >:(
 // but im ok :(
