@@ -28,16 +28,17 @@ document.onclick = async function (event){
             b.y -= prgs.y;
             prgs.y -= 1;
             await new Promise(resolve => setTimeout(resolve, 10))
+            if (b.y > 500) { //too low
+                bigSplashing = true;
+                bigSpashX = b.x;
+                await new Promise(resolve => setTimeout(resolve, 300));
+                bigSplashing = false;
+                isFiring = false;
+                return;
+            }
         }
         isFiring = false;
-        if (b.y > 500) { //too low
-            bigSplashing = true;
-            bigSpashX = b.x;
-            await new Promise(resolve => setTimeout(resolve, 300));
-            bigSplashing = false;
-            isFiring = false;
-            break;
-        }
+        
     }
 }
 
