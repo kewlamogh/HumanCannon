@@ -40,6 +40,10 @@ canvas.onclick = async function (event){
             }
             if (b.x < orig) {
                 console.log('hmm');
+                bigSplashing = false;
+                isFiring = false;
+                return;
+                break;
             }
         }
         isFiring = false;
