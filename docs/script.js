@@ -10,6 +10,7 @@ let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined};
 let canvas = document.getElementById('canv');
 let ctx = document.getElementById('canv').getContext('2d');
+let humans = ['human (2).jpg', 'human.jpg']
 cannon.src = 'cannon.jpg';
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;};
@@ -65,7 +66,7 @@ function render() {
     
     if (isFiring) {
         let my=document.createElement('img');
-        my.src = 'human (2).jpg';
+        my.src = humans[Math.random() * humans.length];
         ctx.drawImage(my, b.x, b.y);
     }
     
