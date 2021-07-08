@@ -1,11 +1,3 @@
-/** 
- * Woohoo!
- * This is my first fully-developed-in VS Code project
- * My first VS Code project
- * My 5th repo on Github
- * ~~and my worst physics ever~~
-*/
-
 let isFiring = false;
 let b = {x: 0, y:0, dir:0}; //bullet - dir attr has nothing to do with graphics just essential to the physics engine
 let bigSplashX = 0; //x to show splash of water - displays in render func if bigSplashing
@@ -82,7 +74,7 @@ function render() {
     }
     
     if (bigSplashing) {
-        let spatch = genImg('splash-from-water.jpg');
+        let spatch = genImg('imgs/splash-from-water.jpg');
         ctx.drawImage(spatch, bigSplashX, 370);
     }
 }
