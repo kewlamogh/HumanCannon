@@ -17,6 +17,7 @@ canvas.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
+    let orig = b.x;
     if (!isFiring && Math.round(dir) == 0 && dir) {
         isFiring = true;
         b = {x: 50, y: 430};
@@ -36,6 +37,9 @@ canvas.onclick = async function (event){
                 bigSplashing = false;
                 isFiring = false;
                 return;
+            }
+            if (b.x < orig) {
+                console.log('hmm');
             }
         }
         isFiring = false;
