@@ -19,9 +19,9 @@ canvas.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
-    humanToDraw = humans[Math.floor(Math.random()*humans.length)];
     let orig = b.x;
     if (!isFiring && Math.round(dir) == 0 && dir) {
+        humanToDraw = humans[Math.floor(Math.random()*humans.length)];
         isFiring = true;
         b = {x: 50, y: 430};
         bdir = dir;
@@ -30,12 +30,6 @@ canvas.onclick = async function (event){
         let prgs = {x: Math.sin(bdir) * 22, y:Math.cos(bdir) * 22}
         for (var i = 0; i <= 150; i++) {
             b.x -= prgs.x; 
-            if (b.x < orig) {
-                isFiring = false; 
-                bigSplashing = false;
-                console.log('hmm');
-                return;
-            }
             b.y -= prgs.y;
             prgs.y -= 1;
             await new Promise(resolve => setTimeout(resolve, 10))
