@@ -5,6 +5,7 @@ let b = {x: 0, y:0};
 let bdir = 0;
 let bigSpashX = 0;
 let dir = 0;
+let humanToDraw = 'human.jpg';
 let bigSplashing = false;
 let cannon = document.createElement('img');
 let mouse = {x: undefined, y: undefined};
@@ -18,6 +19,7 @@ canvas.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
+    humanToDraw = humans[Math.floor(Math.random()*humans.length)];
     let orig = b.x;
     if (!isFiring && Math.round(dir) == 0 && dir) {
         isFiring = true;
@@ -66,7 +68,7 @@ function render() {
     
     if (isFiring) {
         let my=document.createElement('img');
-        my.src = humans[Math.floor(Math.random()*humans.length)];
+        my.src = humanToDraw;
         ctx.drawImage(my, b.x, b.y);
     }
     
