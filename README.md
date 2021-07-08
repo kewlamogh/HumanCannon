@@ -27,5 +27,7 @@ Enjoy!
 
 # No humans were harmed in the making of this. 
 
+# Please, please, PLEASE contribute to this... especially the bug where in certain angles the human appears to glide from the underside of the cannon... hmmm :|
+
 # License
 GNU General Public License
