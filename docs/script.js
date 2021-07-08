@@ -28,7 +28,7 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
 
         let vel = {x: Math.sin(b.dir) * 22, y:Math.cos(b.dir) * 22} //progress/translation/velocity I'm calling it vel 
         for (var i = 0; i <= 150; i++) { //loop
-            b.x += vel.x; 
+            b.x -= vel.x; 
             b.y -= vel.y;
             vel.y -= 1;
             await new Promise(resolve => setTimeout(resolve, 10)) //slowing down the loop to scratch-like speed - this script was originally in scratchlang
