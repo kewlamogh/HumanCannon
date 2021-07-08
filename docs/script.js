@@ -17,7 +17,7 @@ canvas.onclick = async function (event){
     //b is actual pos
     //prgs is x & y vars
     //k
-    if (!isFiring && Math.round(dir) == 0 && dir > 0.046478131351002934) {
+    if (!isFiring && Math.round(dir) == 0) {
         isFiring = true;
         b = {x: 50, y: 430};
         bdir = dir;
