@@ -23,7 +23,7 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
  
         b = {x: 50, y: 430, dir: dir}; 
         isFiring = true;
-        moveProjectileSteps(50, offsetY = 60);
+        moveProjectileSteps(50, -20, 60);
 
 
         let vel = {x: Math.sin(b.dir) * 22, y:Math.cos(b.dir) * 22} //progress/translation/velocity I'm calling it vel 
