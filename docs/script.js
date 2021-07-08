@@ -22,8 +22,8 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
         humanToDraw = humans[Math.floor(Math.random()*humans.length)]; //shuffling humans
  
         b = {x: 50, y: 430, dir: dir}; 
-        moveProjectileSteps(50, offsetY = 60);
         isFiring = true;
+        moveProjectileSteps(50, offsetY = 60);
 
 
         let vel = {x: Math.sin(b.dir) * 22, y:Math.cos(b.dir) * 22} //progress/translation/velocity I'm calling it vel 
@@ -80,8 +80,6 @@ function updateHTMLHumansThrownElem(nextValue) {
 
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
-    
-    drawImageLookat(cannon, cannonPos.x, cannonPos.y, mouse.x, mouse.y);
 
     if (isFiring) {
         let my= genImg('imgs',humanToDraw);
@@ -92,6 +90,8 @@ function render() {
         let spatch = genImg('imgs', 'splash-from-water.jpg');
         ctx.drawImage(spatch, bigSplashX, 370);
     }
+    
+    drawImageLookat(cannon, cannonPos.x, cannonPos.y, mouse.x, mouse.y);
 }
 async function main() {
     render();
