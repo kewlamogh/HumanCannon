@@ -12,11 +12,11 @@ let bigSplashX = 0; //x to show splash of water - displays in render func if big
 let dir = 0; //direction canon has point toward to point to mouse
 let humanToDraw = 'human.jpg'; //human to draw - gets randomly shuffled from humans
 let bigSplashing = false; //has human landed and is it splashing?
-let cannon = genImg('https://irisor.cf/i/5/cannon.jpg'); //the cannon's HTMLImgElement
+let cannon = genImg('imgs/cannon.jpg'); //the cannon's HTMLImgElement
 let mouse = {x: undefined, y: undefined}; //mouse pos
 let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
-let humans = ["https://irisor.cf/i/2/human.jpg", "https://irisor.cf/i/3/human_2.jpg", "https://irisor.cf/i/4/human3.jpg"]//humans
+let humans = ["imgs/human.jpg", "imgs/human2.jpg", "imgs/human3.jpg"]//humans
 
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; /**
