@@ -10,7 +10,7 @@ let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
 let humansThrown = 0;
 let cannonPos = {x: 50, y: 430};
-let humans = ["human.jpg", "human2.jpg"]//humans
+let humans = ["human.jpg", "human2.jpg", "human3.jpg"]//humans
 
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; /**
@@ -83,7 +83,7 @@ function render() {
         let spatch = genImg('imgs', 'splash-from-water.jpg');
         ctx.drawImage(spatch, bigSplashX, 370);
     }
-    
+
     drawImageLookat(cannon, cannonPos.x, cannonPos.y, mouse.x, mouse.y);
 }
 async function main() {
