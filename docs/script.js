@@ -4,7 +4,7 @@ let bigSplashX = 0; //x to show splash of water - displays in render func if big
 let dir = 0; //direction canon has point toward to point to mouse
 let humanToDraw = 'human.jpg'; //human to draw - gets randomly shuffled from humans
 let bigSplashing = false; //has human landed and is it splashing?
-let cannon = genImg('imgs','cannon.jpg'); //the cannon's HTMLImgElement
+let cannon = genImg('imgs/other','cannon.jpg'); //the cannon's HTMLImgElement
 let mouse = {x: undefined, y: undefined}; //mouse pos
 let canvas = document.getElementById('canv'); //canvas
 let ctx = canvas.getContext('2d'); //context
@@ -82,12 +82,12 @@ function render() {
     ctx.clearRect(0, 0, 1500, 1500);
 
     if (isFiring) {
-        let my= genImg('imgs',humanToDraw);
+        let my= genImg('imgs/humans', humanToDraw);
         ctx.drawImage(my, b.x, b.y);
     }
     
     if (bigSplashing) {
-        let spatch = genImg('imgs', 'splash-from-water.jpg');
+        let spatch = genImg('imgs/other', 'splash-from-water.jpg');
         ctx.drawImage(spatch, bigSplashX, 370);
     }
     
