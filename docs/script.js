@@ -16,7 +16,9 @@ document.onload = function (event) {
 }
 
 canvas.onmousemove = function (event) {mouse.x = event.clientX; mouse.y = event.clientY;}; //setting variable mouse to mouse coords so that I can access mouse coordinates at will (and not have to do everyhing that relates to mouse coords in an event)
-canvas.onclick = fireHumanJpg(mouse);
+canvas.onclick = function () {
+    fireHumanJpg(mouse);
+}
 
 async function fireHumanJpg(event){
     if (!isFiring && event.x < 400 && dir > -0.750215999198772) {
