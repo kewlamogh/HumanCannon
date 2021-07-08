@@ -58,7 +58,9 @@ function render() {
     my.src = 'human (2).jpg';
     ctx.drawImage(my, b.x, b.y)
     if (bigSplashing) {
-        ctx.drawImage()
+        let spatch = document.createElement('img');
+        spatch.src = 'spatch.jpg';
+        ctx.drawImage(spatch, bigSpashX, 490);
     }
 }
 async function main() {
