@@ -66,7 +66,7 @@ function render() {
     
     if (isFiring) {
         let my=document.createElement('img');
-        my.src = humans[Math.random() * humans.length];
+        my.src = humans[Math.random() * 2];
         ctx.drawImage(my, b.x, b.y);
     }
     
