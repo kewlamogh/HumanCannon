@@ -22,9 +22,8 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
         humanToDraw = humans[Math.floor(Math.random()*humans.length)]; //shuffling humans
  
         b = {x: 50, y: 430, dir: dir}; 
+        moveProjectileSteps(50, offsetY = 60);
         isFiring = true;
-        b.x = (b.x + Math.sin(b.dir) * 50); //thx to scratch dictionary for providing an alternative to "Move () steps" in Scratch (which I translated to JS)
-        b.y = b.y - (Math.cos(b.dir) * 50 + 60); //same as prev comment
 
 
         let vel = {x: Math.sin(b.dir) * 22, y:Math.cos(b.dir) * 22} //progress/translation/velocity I'm calling it vel 
@@ -49,6 +48,14 @@ canvas.onclick = async function (event){ //thanks to Orange-Pear on scratch
     }
 }
  
+
+function moveProjectileSteps(steps, offsetX = 0, offsetY = 0) {
+    b.x = b.x + Math.sin(b.dir) * 50; //thx to scratch dictionary for providing an alternative to "Move () steps" in Scratch (which I translated to JS)
+    b.y = b.y - Math.cos(b.dir) * 50; //same as prev comment
+    b.y += offsetY;
+    b.x += offsetX;
+}
+
 function drawImageLookat(img, x, y, lookx, looky){ //thanks to someone on StackOverflow for this script
     ctx.setTransform(1, 0, 0, 1, x, y);  // set scale and origin
     
@@ -74,6 +81,8 @@ function updateHTMLHumansThrownElem(nextValue) {
 function render() {
     ctx.clearRect(0, 0, 1500, 1500);
     
+    drawImageLookat(cannon, cannonPos.x, cannonPos.y, mouse.x, mouse.y);
+
     if (isFiring) {
         let my= genImg('imgs',humanToDraw);
         ctx.drawImage(my, b.x, b.y);
@@ -83,8 +92,6 @@ function render() {
         let spatch = genImg('imgs', 'splash-from-water.jpg');
         ctx.drawImage(spatch, bigSplashX, 370);
     }
-
-    drawImageLookat(cannon, cannonPos.x, cannonPos.y, mouse.x, mouse.y);
 }
 async function main() {
     render();
@@ -92,5 +99,5 @@ async function main() {
     requestAnimationFrame(main);
 }
 main();
-// lol these 98 lns of code must be the most annoying codes I've had to make >:(
+// lol these 96 lns of code must be the most annoying codes I've had to make >:(
 // but im ok :(
